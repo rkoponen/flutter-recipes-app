@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:recipes_app/providers/recipe_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipes_app/models/recipe.dart';
+import 'package:recipes_app/widgets/bottom_nav_bar.dart';
+import 'package:recipes_app/widgets/category_list_widget.dart';
 import 'package:recipes_app/widgets/recipe_card_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -24,20 +26,33 @@ class HomeScreen extends ConsumerWidget {
             )
           ],
         ),
-        body: Center(
-            child: Column(
+        body: SingleChildScrollView(
+            child: Center(
+                child: Column(
           children: [
             const SizedBox(height: 16),
             Text("Today's featured recipe",
-                style: GoogleFonts.quicksand(
-                  textStyle: const TextStyle(fontSize: 24),
-                )),
+                style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(
               height: 16,
             ),
             if (featuredRecipe != null)
               RecipeCardWidget(recipe: featuredRecipe),
+            const SizedBox(height: 16),
+            Text("Recipe categories",
+                style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 50,
+              child: CategoryListWidget(false),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              child: Text("View more categories"),
+              onPressed: () => print("category button pressed"),
+            ),
           ],
-        )));
+        ))),
+        bottomNavigationBar: const BottomNavBar());
   }
 }
