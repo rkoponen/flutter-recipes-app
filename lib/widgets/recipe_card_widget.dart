@@ -11,9 +11,8 @@ class RecipeCardWidget extends StatelessWidget {
     return Card(
         child: SizedBox(
             width: MediaQuery.of(context).size.width - 50,
-            height: 200,
-            child: Expanded(
-                child: Column(children: [
+            height: 150,
+            child: Column(children: [
               Expanded(
                 child: SizedBox(
                     child: Padding(
@@ -27,6 +26,6 @@ class RecipeCardWidget extends StatelessWidget {
                 subtitle: Text(recipe.description),
                 trailing: const Icon(Icons.favorite_border_rounded),
               )
-            ]))));
+            ])));
   }
 }
