@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:recipes_app/screens/home_screen.dart';
-import 'package:recipes_app/widgets/recipe_list_widget.dart';
 import 'firebase_options.dart';
 
 void main() async {

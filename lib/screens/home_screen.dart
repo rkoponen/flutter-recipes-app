@@ -15,6 +15,7 @@ class HomeScreen extends ConsumerWidget {
     }
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColorLight,
           title: const Text("Recipes"),
           actions: <Widget>[
             IconButton(
@@ -26,7 +27,7 @@ class HomeScreen extends ConsumerWidget {
         body: Center(
             child: Column(
           children: [
-            const SizedBox(height: 32),
+            const SizedBox(height: 16),
             Text("Today's featured recipe",
                 style: GoogleFonts.quicksand(
                   textStyle: const TextStyle(fontSize: 24),
