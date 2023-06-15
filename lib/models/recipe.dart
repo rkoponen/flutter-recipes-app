@@ -3,12 +3,14 @@ import 'package:recipes_app/models/ingredient.dart';
 class Recipe {
   final String id;
   final String name;
+  final String description;
   final List<Ingredient> ingredients;
   final List<String> steps;
 
   Recipe(
       {required this.id,
       required this.name,
+      required this.description,
       required this.ingredients,
       required this.steps});
 
@@ -28,12 +30,13 @@ class Recipe {
     }
 
     return Recipe(
-        id: id, name: data['name'], ingredients: ingredients, steps: steps);
+        id: id, name: data['name'], description: data['description'], ingredients: ingredients, steps: steps);
   }
 
   Map<String, dynamic> toFirestore() {
     return {
       'name': name,
+      'description': description,
       'ingredients': ingredients.map((ingredient) => ingredient.toFirestore()),
       'steps': steps
     };

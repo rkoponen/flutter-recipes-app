@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:recipes_app/screens/home_screen.dart';
 import 'package:recipes_app/widgets/recipe_list_widget.dart';
 import 'firebase_options.dart';
 
@@ -22,8 +23,7 @@ class RecipeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Recipes',
-        home: Scaffold(
-          body: RecipeListWidget(),
-        ));
+        theme: ThemeData(useMaterial3: true),
+        home: HomeScreen());
   }
 }

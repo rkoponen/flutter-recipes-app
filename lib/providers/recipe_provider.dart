@@ -16,6 +16,12 @@ class RecipeNotifier extends StateNotifier<List<Recipe>> {
     }).toList();
     state = recipes;
   }
+
+  Recipe getRandomRecipe() {
+    final recipes = List<Recipe>.from(state);
+    recipes.shuffle();
+    return recipes.first;
+  }
 }
 
 final recipeProvider = StateNotifierProvider<RecipeNotifier, List<Recipe>>(
