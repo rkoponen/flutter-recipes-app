@@ -22,6 +22,11 @@ class RecipeNotifier extends StateNotifier<List<Recipe>> {
     recipes.shuffle();
     return recipes.first;
   }
+
+  Recipe findRecipeById(String id) {
+    final recipe = state.where((recipe) => recipe.id == id).first;
+    return recipe;
+  }
 }
 
 final recipeProvider = StateNotifierProvider<RecipeNotifier, List<Recipe>>(
