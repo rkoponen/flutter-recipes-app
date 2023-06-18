@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'bottom_nav_bar.dart';
 
 class ScaffoldWithBottomNav extends StatelessWidget {
-  Widget child;
-  ScaffoldWithBottomNav({super.key, 
+  final Widget child;
+  const ScaffoldWithBottomNav({super.key, 
     required this.child,
   });
 
