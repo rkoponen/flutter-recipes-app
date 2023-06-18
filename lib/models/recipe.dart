@@ -7,7 +7,7 @@ class Recipe {
   final String description;
   final List<Ingredient> ingredients;
   final List<String> steps;
-  final List<Category> categories;
+  final List<String> categories;
 
   Recipe(
       {required this.id,
@@ -31,13 +31,10 @@ class Recipe {
         steps.add(step.toString());
       }
     }
-    List<Category> categories = [];
+    List<String> categories = [];
     if (data['categories'] != null) {
       for (var category in data['categories']) {
-        categories.add(Category.fromFirestore({
-          'name': category['name'],
-          'description': category['description']
-        }));
+        categories.add(category.toString());
       }
     }
 
@@ -56,7 +53,7 @@ class Recipe {
       'description': description,
       'ingredients': ingredients.map((ingredient) => ingredient.toFirestore()),
       'steps': steps,
-      'categories': categories.map((category) => category.name)
+      'categories': categories
     };
   }
 
