@@ -15,44 +15,35 @@ class HomeScreen extends ConsumerWidget {
     if (recipes.isNotEmpty) {
       featuredRecipe = ref.watch(recipeProvider.notifier).getRandomRecipe();
     }
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColorLight,
-          title: const Text("Recipes"),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () => print("Search pressed."),
-            )
-          ],
-        ),
-        body: SingleChildScrollView(
-            child: Center(
-                child: Column(
-          children: [
-            const SizedBox(height: 16),
-            Text("Today's featured recipe",
-                style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(
-              height: 16,
-            ),
-            if (featuredRecipe != null)
-              RecipeCardWidget(recipe: featuredRecipe),
-            const SizedBox(height: 16),
-            Text("Recipe categories",
-                style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 50,
-              child: CategoryListWidget(false),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              child: Text("View more categories"),
-              onPressed: () => print("category button pressed"),
-            ),
-          ],
-        ))),
-        bottomNavigationBar: const BottomNavBar());
+    return SingleChildScrollView(
+      child: Center(
+          child: Column(
+        children: [
+          const SizedBox(height: 16),
+          Text("Today's featured recipe",
+              style: Theme.of(context).textTheme.titleLarge),
+          const SizedBox(
+            height: 16,
+          ),
+          if (featuredRecipe != null) RecipeCardWidget(recipe: featuredRecipe),
+          const SizedBox(height: 16),
+          Text("Recipe categories",
+              style: Theme.of(context).textTheme.titleLarge),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: MediaQuery.of(context).size.width - 50,
+            child: CategoryListWidget(subset: true),
+          ),
+          SizedBox(height: 16),
+          ElevatedButton(
+            child: Text("View more categories"),
+            onPressed: () => print("category button pressed"),
+          ),
+          SizedBox(
+            height: 16,
+          )
+        ],
+      )),
+    );
   }
 }
