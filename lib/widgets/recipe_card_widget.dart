@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../models/recipe.dart';
 
 class RecipeCardWidget extends StatelessWidget {
   final Recipe recipe;
-  RecipeCardWidget({required this.recipe});
+  const RecipeCardWidget({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class RecipeCardWidget extends StatelessWidget {
                             child: const Placeholder()))),
               ),
               ListTile(
+                onTap: () => context.push('/recipe/${recipe.id}'),
                 title: Text(recipe.name),
                 subtitle: Text(recipe.description),
                 trailing: const Icon(Icons.favorite_border_rounded),
