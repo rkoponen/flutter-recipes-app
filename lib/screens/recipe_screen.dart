@@ -7,7 +7,7 @@ import 'package:recipes_app/widgets/steps_list_widget.dart';
 class RecipeScreen extends ConsumerWidget {
   String recipeId;
 
-  RecipeScreen({required this.recipeId});
+  RecipeScreen({super.key, required this.recipeId});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -1,4 +1,3 @@
-import 'package:recipes_app/models/category.dart';
 import 'package:recipes_app/models/ingredient.dart';
 
 class Recipe {

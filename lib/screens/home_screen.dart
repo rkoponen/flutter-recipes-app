@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:recipes_app/providers/recipe_provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:recipes_app/models/recipe.dart';
-import 'package:recipes_app/widgets/bottom_nav_bar.dart';
 import 'package:recipes_app/widgets/category_list_widget.dart';
 import 'package:recipes_app/widgets/recipe_card_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final recipes = ref.watch(recipeProvider);
@@ -32,14 +32,14 @@ class HomeScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           SizedBox(
             width: MediaQuery.of(context).size.width - 50,
-            child: CategoryListWidget(subset: true),
+            child: const CategoryListWidget(subset: true),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           ElevatedButton(
-            child: Text("View more categories"),
+            child: const Text("View more categories"),
             onPressed: () => print("category button pressed"),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           )
         ],

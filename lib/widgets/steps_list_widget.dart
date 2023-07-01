@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../models/ingredient.dart';
 
 class StepsListWidget extends StatelessWidget {
   final List<String> steps;
-  StepsListWidget({super.key, required this.steps});
+  const StepsListWidget({super.key, required this.steps});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class StepsListWidget extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final step = steps[index];
         return Padding(
-            padding: EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(5.0),
             child: RichText(
                 text: TextSpan(
                     style: Theme.of(context).textTheme.bodyLarge,

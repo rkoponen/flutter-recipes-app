@@ -10,9 +10,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final snapshot = await _firestore.collection('recipes').get();
-  snapshot.docs.forEach((doc) => print('${doc.id}: ${doc.data()}'));
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final snapshot = await firestore.collection('recipes').get();
+  for (var doc in snapshot.docs) {
+    print('${doc.id}: ${doc.data()}');
+  }
   runApp(ProviderScope(
       child: MaterialApp.router(
           routerConfig: router, theme: ThemeData(useMaterial3: true))));
@@ -26,6 +28,6 @@ class RecipeApp extends StatelessWidget {
     return MaterialApp(
         title: 'Recipes',
         theme: ThemeData(useMaterial3: true),
-        home: HomeScreen());
+        home: const HomeScreen());
   }
 }

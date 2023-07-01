@@ -4,7 +4,7 @@ import '../models/ingredient.dart';
 
 class IngredientListWidget extends StatelessWidget {
   final List<Ingredient> ingredients;
-  IngredientListWidget({super.key, required this.ingredients});
+  const IngredientListWidget({super.key, required this.ingredients});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class IngredientListWidget extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final ingredient = ingredients[index];
         return Padding(
-            padding: EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(5.0),
             child: Text("\u2022 ${ingredient.name}: ${ingredient.amount}",
                 style: Theme.of(context).textTheme.bodyLarge));
       },
