@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipes_app/providers/recipe_provider.dart';
 import 'package:recipes_app/models/recipe.dart';
 import 'package:recipes_app/widgets/category_list_widget.dart';
@@ -37,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             child: const Text("View more categories"),
-            onPressed: () => print("category button pressed"),
+            onPressed: () => context.push("/categories"),
           ),
           const SizedBox(
             height: 16,
