@@ -22,14 +22,16 @@ class CategoryListWidget extends ConsumerWidget {
       itemCount: categories.length,
       itemBuilder: (BuildContext context, int index) {
         final category = categories[index];
-        return Card(
-            child: ListTile(
-                leading:
-                    const SizedBox(height: 30, width: 30, child: Placeholder()),
-                title: Text(
-                    "${category.name[0].toUpperCase()}${category.name.substring(1)}"),
-                subtitle: Text(category.description),
-                onTap: () => context.push("/category/${category.name}")));
+        return Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Card(
+                child: ListTile(
+                    leading: const SizedBox(
+                        height: 30, width: 30, child: Placeholder()),
+                    title: Text(
+                        "${category.name[0].toUpperCase()}${category.name.substring(1)}"),
+                    subtitle: Text(category.description),
+                    onTap: () => context.push("/category/${category.name}"))));
       },
     );
   }
