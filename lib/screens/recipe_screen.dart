@@ -6,8 +6,9 @@ import 'package:recipes_app/widgets/steps_list_widget.dart';
 
 class RecipeScreen extends ConsumerWidget {
   String recipeId;
+  final bool backButton;
 
-  RecipeScreen({super.key, required this.recipeId});
+  RecipeScreen({super.key, required this.recipeId, required this.backButton});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,7 +22,7 @@ class RecipeScreen extends ConsumerWidget {
         children: [
           Row(
             children: [
-              const BackButton(),
+              if (backButton) const BackButton(),
               SizedBox(width: 16),
               Align(
                   alignment: Alignment.center,
