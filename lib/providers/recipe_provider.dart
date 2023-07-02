@@ -27,6 +27,12 @@ class RecipeNotifier extends StateNotifier<List<Recipe>> {
     final recipe = state.where((recipe) => recipe.id == id).first;
     return recipe;
   }
+
+  List<Recipe> findRecipesByCategory(String categoryName) {
+    final recipes =
+        state.where((recipe) => recipe.categories.contains(categoryName));
+    return recipes.toList();
+  }
 }
 
 final recipeProvider = StateNotifierProvider<RecipeNotifier, List<Recipe>>(
