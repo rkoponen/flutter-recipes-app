@@ -1,6 +1,7 @@
 import 'dart:js';
 
 import 'package:go_router/go_router.dart';
+import 'package:recipes_app/screens/category_screen.dart';
 import 'package:recipes_app/screens/home_screen.dart';
 import 'package:recipes_app/screens/recipe_list_screen.dart';
 import 'package:recipes_app/screens/recipe_screen.dart';
@@ -14,18 +15,33 @@ final router = GoRouter(initialLocation: '/', routes: [
       routes: [
         GoRoute(
             path: '/',
-            builder: (context, state) {
-              return const HomeScreen();
+            pageBuilder: (context, state) {
+              return const NoTransitionPage(child: HomeScreen());
             }),
         GoRoute(
           path: '/recipe/:recipeId',
-          builder: (context, state) =>
-              RecipeScreen(recipeId: state.pathParameters['recipeId']!),
+          builder: (context, state) => RecipeScreen(
+              recipeId: state.pathParameters['recipeId']!, backButton: true),
         ),
+        GoRoute(
+          path: "/recipe/random/:recipeId",
+          pageBuilder: (context, state) => NoTransitionPage(
+              child: RecipeScreen(
+            recipeId: state.pathParameters['recipeId']!,
+            backButton: false,
+          )),
+        ),
+        GoRoute(
+          path: '/category',
+          pageBuilder: (context, state) =>
+              NoTransitionPage(child: CategoryScreen()),
+        ),
+        GoRoute(
+            path: '/categories', builder: (context, state) => CategoryScreen()),
         GoRoute(
           path: '/category/:categoryName',
           builder: (context, state) => RecipeListScreen(
               categoryName: state.pathParameters['categoryName']!),
-        )
+        ),
       ])
 ]);
