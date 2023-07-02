@@ -4,8 +4,9 @@ import 'bottom_nav_bar.dart';
 
 class ScaffoldWithBottomNav extends StatelessWidget {
   final Widget child;
-  const ScaffoldWithBottomNav({super.key, 
-    required this.child,
+  const ScaffoldWithBottomNav({
+    super.key,
+    required this.child
   });
 
   @override
@@ -13,7 +14,7 @@ class ScaffoldWithBottomNav extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColorLight,
-          title: const Text("Recipes"),
+          title: const Text("Recipes App"),
           actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.search),
