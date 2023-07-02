@@ -19,13 +19,20 @@ class RecipeScreen extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-              alignment: Alignment.center,
-              child: Text(
-                "Categories: ${recipe.categories.join(", ")}",
-                style: const TextStyle(
-                    fontStyle: FontStyle.italic, fontWeight: FontWeight.w300),
-              )),
+          Row(
+            children: [
+              const BackButton(),
+              SizedBox(width: 16),
+              Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Categories: ${recipe.categories.join(", ")}",
+                    style: const TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w300),
+                  )),
+            ],
+          ),
           const SizedBox(height: 16),
           const Placeholder(
             fallbackHeight: 200,
