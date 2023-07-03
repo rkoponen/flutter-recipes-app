@@ -1,5 +1,4 @@
-import 'dart:js';
-
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipes_app/screens/category_screen.dart';
 import 'package:recipes_app/screens/home_screen.dart';
@@ -33,11 +32,15 @@ final router = GoRouter(initialLocation: '/', routes: [
         ),
         GoRoute(
           path: '/category',
-          pageBuilder: (context, state) =>
-              NoTransitionPage(child: CategoryScreen()),
+          pageBuilder: (context, state) => const NoTransitionPage(
+              child: CategoryScreen(
+            backButton: false,
+          )),
         ),
         GoRoute(
-            path: '/categories', builder: (context, state) => CategoryScreen()),
+            path: '/categories',
+            builder: (context, state) =>
+                const CategoryScreen(backButton: true)),
         GoRoute(
           path: '/category/:categoryName',
           builder: (context, state) => RecipeListScreen(
