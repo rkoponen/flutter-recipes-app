@@ -16,6 +16,7 @@ class RecipeListWidget extends ConsumerWidget {
         ref.watch(recipeProvider.notifier).findRecipesByCategory(categoryName);
 
     return ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: recipes.length,
       itemBuilder: (context, index) {

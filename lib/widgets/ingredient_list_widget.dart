@@ -12,6 +12,7 @@ class IngredientListWidget extends StatelessWidget {
         child: Padding(
             padding: EdgeInsets.all(10),
             child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: ingredients.length,
               itemBuilder: (BuildContext context, int index) {

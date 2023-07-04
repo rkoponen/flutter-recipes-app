@@ -10,6 +10,7 @@ class StepsListWidget extends StatelessWidget {
         child: Padding(
             padding: EdgeInsets.all(10),
             child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: steps.length,
               itemBuilder: (BuildContext context, int index) {
