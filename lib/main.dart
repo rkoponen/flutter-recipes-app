@@ -18,17 +18,10 @@ void main() async {
   }
   runApp(ProviderScope(
       child: MaterialApp.router(
-          routerConfig: router, theme: ThemeData(useMaterial3: true))));
-}
-
-class RecipeApp extends StatelessWidget {
-  const RecipeApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Recipes',
-        theme: ThemeData(useMaterial3: true),
-        home: const HomeScreen());
-  }
+          routerConfig: router,
+          theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+              scaffoldBackgroundColor:
+                  const Color.fromARGB(255, 255, 255, 255)))));
 }
