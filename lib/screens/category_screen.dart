@@ -9,7 +9,7 @@ class CategoryScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SingleChildScrollView(
+    return Container(color: Colors.white, child: SingleChildScrollView(
         child: Padding(
             padding: EdgeInsets.all(16),
             child: Column(
@@ -22,8 +22,8 @@ class CategoryScreen extends ConsumerWidget {
                   ],
                 ),
                 SizedBox(height: 16),
-                const Center(child: CategoryListWidget(subset: false)),
+                const Center(child: CategoryListWidget(subset: false))
               ],
-            )));
+            ))));
   }
 }

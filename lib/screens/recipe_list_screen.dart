@@ -9,20 +9,22 @@ class RecipeListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        const SizedBox(height: 16),
-        Row(
+    return Container(
+        color: Colors.white,
+        child: Column(
           children: [
-            const BackButton(),
-            const SizedBox(width: 16),
-            Text("Category: $categoryName",
-                style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                const BackButton(),
+                const SizedBox(width: 16),
+                Text("Category: $categoryName",
+                    style: Theme.of(context).textTheme.titleLarge),
+              ],
+            ),
+            const SizedBox(height: 16),
+            RecipeListWidget(categoryName: categoryName)
           ],
-        ),
-        const SizedBox(height: 16),
-        RecipeListWidget(categoryName: categoryName)
-      ],
-    );
+        ));
   }
 }

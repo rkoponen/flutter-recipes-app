@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
     if (recipes.isNotEmpty) {
       featuredRecipe = ref.watch(recipeProvider.notifier).getRandomRecipe();
     }
-    return SingleChildScrollView(
+    return Container(color: Colors.white, child: SingleChildScrollView(
       child: Center(
           child: Column(
         children: [
@@ -45,6 +45,6 @@ class HomeScreen extends ConsumerWidget {
           )
         ],
       )),
-    );
+    ));
   }
 }
