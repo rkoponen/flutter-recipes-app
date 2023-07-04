@@ -54,11 +54,11 @@ class RecipeScreen extends ConsumerWidget {
                   ),
                 ],
               )),
-              const Divider(),
               Padding(
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Column(
                     children: [
+                      SizedBox(height: 10),
                       Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -66,7 +66,7 @@ class RecipeScreen extends ConsumerWidget {
                             style: Theme.of(context).textTheme.headlineSmall,
                           )),
                       IngredientListWidget(ingredients: recipe.ingredients),
-                      const Divider(),
+                      SizedBox(height: 10),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text("Steps",
