@@ -14,48 +14,69 @@ class RecipeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final recipe = ref.watch(recipeProvider.notifier).findRecipeById(recipeId);
     //categoriesStr += recipe.categories.last;
-    return SingleChildScrollView(
-        child: Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+            child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (backButton) const BackButton(),
-              SizedBox(width: 16),
-              Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Categories: ${recipe.categories.join(", ")}",
-                    style: const TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300),
-                  )),
+              Row(
+                children: [
+                  if (backButton) const BackButton(),
+                  SizedBox(width: 16),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Categories: ${recipe.categories.join(", ")}",
+                        style: const TextStyle(
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w300),
+                      )),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Card(
+                  child: Column(
+                children: [
+                  const Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Placeholder(
+                        fallbackHeight: 200,
+                        fallbackWidth: 200,
+                      )),
+                  ListTile(
+                    title: Text(recipe.name,
+                        style: Theme.of(context).textTheme.headlineLarge),
+                    subtitle: Text(recipe.description,
+                        style: Theme.of(context).textTheme.titleMedium),
+                  ),
+                ],
+              )),
+              const Divider(),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: Column(
+                    children: [
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Ingredients",
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          )),
+                      IngredientListWidget(ingredients: recipe.ingredients),
+                      const Divider(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text("Steps",
+                            style: Theme.of(context).textTheme.headlineSmall),
+                      ),
+                      StepsListWidget(steps: recipe.steps),
+                    ],
+                  ))
             ],
           ),
-          const SizedBox(height: 16),
-          const Placeholder(
-            fallbackHeight: 200,
-            fallbackWidth: 200,
-          ),
-          ListTile(
-            title: Text(recipe.name,
-                style: Theme.of(context).textTheme.headlineLarge),
-            subtitle: Text(recipe.description,
-                style: Theme.of(context).textTheme.titleMedium),
-            trailing: const Icon(Icons.favorite_border_rounded, size: 30.0),
-          ),
-          const Divider(),
-          Text("Ingredients",
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.left),
-          IngredientListWidget(ingredients: recipe.ingredients),
-          const Divider(),
-          Text("Steps", style: Theme.of(context).textTheme.headlineSmall),
-          StepsListWidget(steps: recipe.steps)
-        ],
-      ),
-    ));
+        )));
   }
 }
