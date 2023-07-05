@@ -5,15 +5,14 @@ import 'package:recipes_app/widgets/ingredient_list_widget.dart';
 import 'package:recipes_app/widgets/steps_list_widget.dart';
 
 class RecipeScreen extends ConsumerWidget {
-  String recipeId;
+  final String recipeId;
   final bool backButton;
 
-  RecipeScreen({super.key, required this.recipeId, required this.backButton});
+  const RecipeScreen({super.key, required this.recipeId, required this.backButton});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final recipe = ref.watch(recipeProvider.notifier).findRecipeById(recipeId);
-    //categoriesStr += recipe.categories.last;
     return Container(
         color: Colors.white,
         child: SingleChildScrollView(
@@ -48,7 +47,7 @@ class RecipeScreen extends ConsumerWidget {
                       )),
                   ListTile(
                     title: Text(recipe.name,
-                        style: Theme.of(context).textTheme.headlineLarge),
+                        style: Theme.of(context).textTheme.headlineMedium),
                     subtitle: Text(recipe.description,
                         style: Theme.of(context).textTheme.titleMedium),
                   ),
