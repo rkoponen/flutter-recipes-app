@@ -36,7 +36,8 @@ class RecipeNotifier extends StateNotifier<List<Recipe>> {
 
   List<Recipe> findRecipesByName(String name) {
     if (name.isEmpty) return List.empty();
-    final recipes = state.where((recipe) => recipe.name.contains(name));
+    final recipes = state.where(
+        (recipe) => recipe.name.toLowerCase().contains(name.toLowerCase()));
     return recipes.toList();
   }
 }
