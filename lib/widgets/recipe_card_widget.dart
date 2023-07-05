@@ -6,8 +6,7 @@ import '../models/recipe.dart';
 class RecipeCardWidget extends StatelessWidget {
   final Recipe recipe;
   final SearchController? controller;
-  const RecipeCardWidget(
-      {super.key, required this.recipe, this.controller});
+  const RecipeCardWidget({super.key, required this.recipe, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +14,15 @@ class RecipeCardWidget extends StatelessWidget {
         child: Card(
           child: SizedBox(
               width: MediaQuery.of(context).size.width - 50,
-              height: 150,
               child: Column(children: [
-                Expanded(
-                  child: SizedBox(
-                      child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: const Placeholder()))),
-                ),
+                SizedBox(
+                    width: 400,
+                    height: 200,
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: const Placeholder()))),
                 ListTile(
                   title: Text(recipe.name),
                   subtitle: Text(recipe.description),
