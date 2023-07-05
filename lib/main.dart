@@ -20,6 +20,7 @@ void main() async {
       child: MaterialApp.router(
           routerConfig: router,
           theme: ThemeData(
+              fontFamily: 'Noto Serif',
               useMaterial3: true,
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
               scaffoldBackgroundColor:
