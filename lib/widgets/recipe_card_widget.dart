@@ -17,16 +17,16 @@ class RecipeCardWidget extends StatelessWidget {
               child: Column(children: [
                 SizedBox(
                     width: 400,
-                    height: 200,
+                    height: 150,
                     child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: const Placeholder()))),
                 ListTile(
-                  title: Text(recipe.name),
+                  title: Text(recipe.name,
+                      style: Theme.of(context).textTheme.titleLarge),
                   subtitle: Text(recipe.description),
-                  trailing: const Icon(Icons.favorite_border_rounded),
                 )
               ])),
         ),
