@@ -12,13 +12,14 @@ class ScaffoldWithBottomNav extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColorLight,
-          leading: Icon(Icons.soup_kitchen),
-          actions: <Widget>[
-            SearchBarWidget()
+          backgroundColor: Theme.of(context).primaryColor,
+          leading: const Icon(Icons.soup_kitchen),
+          actions: const <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20), child: SearchBarWidget())
           ],
         ),
         body: child,
-        bottomNavigationBar: BottomNavBar());
+        bottomNavigationBar: const BottomNavBar());
   }
 }

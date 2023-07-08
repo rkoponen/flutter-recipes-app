@@ -10,17 +10,18 @@ class IngredientListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: ingredients.length,
               itemBuilder: (BuildContext context, int index) {
                 final ingredient = ingredients[index];
+                final dots = ingredient.amount.isEmpty ? '' : ':';
                 return Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Text(
-                        "\u2022 ${ingredient.name}: ${ingredient.amount}",
+                        "\u2022 ${ingredient.name}$dots ${ingredient.amount}",
                         style: Theme.of(context).textTheme.bodyLarge));
               },
             )));

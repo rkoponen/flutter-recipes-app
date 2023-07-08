@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:recipes_app/providers/recipe_provider.dart';
 import 'package:recipes_app/widgets/recipe_card_widget.dart';
 
-import '../models/recipe.dart';
 
 class RecipeListWidget extends ConsumerWidget {
   final String categoryName;
@@ -16,13 +15,13 @@ class RecipeListWidget extends ConsumerWidget {
         ref.watch(recipeProvider.notifier).findRecipesByCategory(categoryName);
 
     return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: recipes.length,
       itemBuilder: (context, index) {
         final recipe = recipes[index];
         return Column(
-            children: [RecipeCardWidget(recipe: recipe), SizedBox(height: 16)]);
+            children: [RecipeCardWidget(recipe: recipe), const SizedBox(height: 16)]);
       },
     );
   }

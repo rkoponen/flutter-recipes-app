@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recipes_app/extensions/string_extension.dart';
 
 import '../models/recipe.dart';
 
@@ -24,7 +25,7 @@ class RecipeCardWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                             child: const Placeholder()))),
                 ListTile(
-                  title: Text(recipe.name,
+                  title: Text(recipe.name.capitalize(),
                       style: Theme.of(context).textTheme.titleLarge),
                   subtitle: Text(recipe.description),
                 )

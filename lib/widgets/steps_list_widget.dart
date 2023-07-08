@@ -8,9 +8,9 @@ class StepsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: steps.length,
               itemBuilder: (BuildContext context, int index) {
