@@ -6,6 +6,8 @@ import 'package:recipes_app/providers/recipe_provider.dart';
 final indexProvider = StateProvider<int>((ref) => 0);
 
 class BottomNavBar extends ConsumerWidget {
+  const BottomNavBar({super.key});
+  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var selectedIndex = ref.watch(indexProvider);
